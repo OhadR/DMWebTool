@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>new DM Tool</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="javascript/utils.js"></script>
+    <script type="text/javascript" src="javascript/dm_connect.js"></script>
+    <script type="text/javascript" src="javascript/raw_schema.js"></script>
+    <script type="text/javascript" src="javascript/store_mngmnt.js"></script>
+    <!--link rel="stylesheet" href="/resources/demos/style.css"-->
+    <link rel="stylesheet" href="css/dm_styles.css">
+
+    <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
+</head>
+<body>
+ 
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Connect</a></li>
+        <li><a href="#tabs-2">Store Management</a></li>
+        <li><a href="#tabs-3">Enum Management</a></li>
+        <li><a href="#tabs-4">Raw Schema</a></li>
+    </ul>
+  <div id="tabs-1">
+      <div id="connection">
+          <label for="tenant">Tenant Name: </label>
+          <input name="tenant" id="tenant" style="width:300px" value=""/>
+          <a class="button" href="#" onclick="this.blur(); connect(); return false;"><span>Connect</span></a>
+
+      </div>
+      <br><br>
+
+      <div id="account_relevant_data">
+          <label for="tomcat_host">Tomcat Host: </label>
+          <input name="tomcat_host" id="tomcat_host" style="width:300px"/>
+          <br>
+          <label for="tomcat_port">Tomcat Port: </label>
+          <input name="tomcat_port" id="tomcat_port" style="width:300px"/>
+      </div>
+
+      <br><br>
+
+      <div id="auth_relevant_data">
+          <label for="authentication_host">Authentication Host: </label>
+          <input name="authentication_host" id="authentication_host" style="width:300px"/>
+          <br>
+          <label for="authentication_port">Authentication Port: </label>
+          <input name="authentication_port" id="authentication_port" style="width:300px"/>
+      </div>
+  </div>
+
+    <div id="tabs-2">
+        <div id="store_management">
+            <label for="sm_file_path_in_hadoop">logic file path in hadoop: </label>
+            <input name="sm_file_path_in_hadoop" id="sm_file_path_in_hadoop" style="width:300px" value=""/>
+            <br>
+            <label for="sm_schema_name">schema name: </label>
+            <input name="sm_schema_name" id="sm_schema_name" style="width:300px" value=""/>
+            <br>
+            <label for="sm_schema_version">schema version: </label>
+            <input name="sm_schema_version" id="sm_schema_version" style="width:300px" value=""/>
+            <br>
+            <a class="button" href="#" onclick="onInsertFile();"><span>Insert File</span></a>
+
+        </div>
+    </div>
+    <div id="tabs-3">
+        <p>Enum Management - under construxn. Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibuus a, lacus.</p>
+    </div>
+    <div id="tabs-4">
+        <div id="raw_schema">
+            <a class="button" href="#" onclick="getAllSchemaList();"><span>Get All Schema List</span></a>
+            <br><br>
+            <textarea id="allSchemasResult" cols="40" rows="20"></textarea>
+
+        </div>
+    </div>
+</div>
+ 
+ 
+</body>
+</html>

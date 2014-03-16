@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="applicationContextProvider" class="com.ccih.base.bootstrap.ApplicationContextProvider" />
+
+    <util:map id="uriMap" value-type="java.lang.String" map-class="java.util.HashMap">
+        <entry key="remoteHost" value="http://ConfigureByUI:ConfigureByUI" />
+    </util:map>
+
+    <bean id="remotingUtilPropertyBean" class="com.ccih.base.utils.RemotingUtilProperties">
+        <property name="propertiesMap" ref="uriMap" />
+    </bean>
+
+    <bean id="remotingUtil" class="com.ccih.base.service.RemotingUtils" >
+        <property name="remotingUtilPropertyBean" ref="remotingUtilPropertyBean"/>
+        <property name="doOutput" value="true"/>
+        <property name="readTimeout" value="8000"/>
+    </bean>
+
+    <!-- Default configuration for Server Initiated Flows -->
+    <bean id="AuthenticationService" class="com.ccih.base.service.AuthenticationServiceMock" >
+        <property name="openAMProtocol" value="http"/>
+        <property name="openAMHost" value="ConfigureByUI"/>
+        <property name="openAMPort" value="ConfigureByUI"/>
+        <property name="serviceUsername" value="serviceuser"/>
+        <property name="servicePassword" value="qwe123!@#"/>
+        <property name="serviceUserRealm" value="ConfigureByUI"/>
+        <property name="readTimeout" value="60000"/>
+    </bean>
+
+</beans>
