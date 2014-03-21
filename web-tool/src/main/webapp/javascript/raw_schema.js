@@ -31,8 +31,8 @@ function populateRawSchemaListResult(response)
 
     if(response.startsWith('ERROR'))
     {
-        var res = str.split(DELIMITER);
-        alert(res[1]);
+        var res = response.split(DELIMITER);
+        alert(ERROR + ": " + res[1]);
     }
     else
     {

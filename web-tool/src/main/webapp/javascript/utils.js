@@ -1,5 +1,6 @@
 var APP_BACKEND_URL = '/tool';
 var DELIMITER = '|';
+var ERROR = 'ERROR';
 
 var tfHost;
 var tfPort;

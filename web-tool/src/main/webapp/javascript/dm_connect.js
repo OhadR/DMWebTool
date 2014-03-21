@@ -30,5 +30,14 @@ function connect()
 
 function populateConnectionResult(response)
 {
-    alert('got response ' + response);
+    if(response.startsWith(ERROR))
+    {
+        var res = response.split(DELIMITER);
+        alert(ERROR + ": " + res[1]);
+    }
+    else
+    {
+        //TODO: status div 'connected'?
+        alert(res[1]);
+    }
 }
